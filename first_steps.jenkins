@@ -9,4 +9,26 @@ pipeline {
             }
         }
     }
+    node{
+        if (fileExists('requirements.txt')) {
+    sh """
+    . .venv_vens/bin/activate
+    pip install -r requirements.txt
+    """
+    }
+
+}
+
+...
+sh """
+. .venv_vens/bin/activate
+pip install -r requirements.txt
+"""
+
+stage("Unittests") {
+    sh """
+    . .venv_vens/bin/activate
+    ./test_getnada.py test --noinput
+    """
+}
 }
