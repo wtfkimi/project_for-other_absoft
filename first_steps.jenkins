@@ -1,24 +1,9 @@
-#!groovy
-// Check ub1 properties
-properties([disableConcurrentBuilds()])
-
 pipeline {
-    agent {
-        label 'master'
-        }
-    options {
-        buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
-        timestamps()
-    }
+    agent { docker { image 'python:3.5.1' } }
     stages {
-        stage("First step") {
+        stage('build') {
             steps {
-                sh 'ls -la'
-            }
-        }
-        stage("Second step") {
-            steps {
-                sh 'ls -la'
+                sh 'python --version'
             }
         }
     }
