@@ -3,16 +3,9 @@ pipeline {
         label 'master'
      }
     stages {
-        stage('build') {
             steps {
                 sh 'ls -la'
             }
-
-        stage('build'){
-            steps{
-                sh '. .venv_vens/bin/activate'
-            }
-        }
         }
     }
 }
