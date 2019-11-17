@@ -7,9 +7,12 @@ pipeline {
             steps {
                 sh 'ls -la'
             }
+
+        stage('build'){
             steps{
                 sh '. .venv_vens/bin/activate'
             }
+        }
         }
     }
 }
