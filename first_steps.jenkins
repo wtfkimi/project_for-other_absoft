@@ -5,7 +5,7 @@ pipeline {
     stages{
         stage('First-step'){
             steps {
-            sh '. .venv_vens/bin/activate'
+            sh 'source venv_vens/bin/activate'
             }
         }
     }
